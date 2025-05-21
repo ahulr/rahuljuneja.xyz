@@ -3,103 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>My Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            max-width: 900px; /* Max width for content */
-            margin-left: auto; /* Center content */
-            margin-right: auto; /* Center content */
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        header h1 {
-            margin-bottom: 5px;
-            font-size: 32px;
-        }
-        header h2 {
-            font-size: 22px;
-            color: #f0f0f0; /* Lighter color for subtitle */
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 16px;
-            padding: 0 20px; /* Add some padding to summary */
-        }
-        section {
-            background: #fff;
-            margin: 0 20px 20px 20px; /* Horizontal margin, bottom margin */
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px; /* Softer corners */
-        }
-        h2 { /* Section Headings */
-            color: #333;
-            font-size: 24px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0; /* Remove default top margin */
-            margin-bottom: 15px;
-        }
-        h3 { /* Job titles, project titles, degree */
-            color: #555;
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-        article { /* Used for job entries, projects, education entry */
-            margin-bottom: 20px;
-        }
-        article:last-child {
-            margin-bottom: 0; /* No margin for the last article in a section */
-        }
-        p {
-            margin-bottom: 10px;
-        }
-        ul {
-            padding-left: 20px; /* Adjust default list indentation */
-            list-style-position: outside; /* Standard bullet position */
-            margin-bottom: 0; /* Remove bottom margin from ul itself */
-        }
-        li {
-            margin-bottom: 8px; /* Space out list items */
-        }
-        a {
-            color: #007bff; /* Standard link blue */
-            text-decoration: none;
-        }
-        a:hover {
-            color: #0056b3; /* Darker blue on hover */
-            text-decoration: underline;
-        }
-        img {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            width: 150px; /* Slightly smaller profile picture */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: 50%; /* Circular picture */
-            margin-bottom: 20px; /* Space below picture */
-            border: 3px solid #ddd;
-        }
-        /* Ensure the image is placed after the header and contact details if it's a profile picture */
-        #contact-details + img { /* Selects img immediately following contact-details */
-             margin-top: 20px;
-        }
-
-    </style>
 </head>
 <body>
     <header>
+        <img src="assets/images/profile.jpg" alt="Rahul Juneja - Profile Picture">
         <h1>Rahul Juneja</h1>
         <h2>Android Application Developer</h2>
         <p>A forward-thinking developer with strong knowledge of Android architecture components and more than 10 years of experience, working in different markets and industries. In my free time, I work on my personal projects which have more than 8 million downloads on Google Play.</p>
@@ -115,8 +24,6 @@
             <li>GitHub: <a href="https://github.com/ahulr">github.com/ahulr</a></li>
         </ul>
     </section>
-
-    <img src="https://placekitten.com/200/300" alt="My Picture">
 
     <section id="work-experience">
         <h2>Work Experience</h2>
@@ -189,14 +96,14 @@
             <h3>FlashTalk (09/2024 - Present)</h3>
             <ul>
                 <li>Designed and developed an AI-powered flashcard app that supports learning and practicing over 50 languages</li>
-                <li>Link: <a href="#">Search "Rahul Juneja Google Play Developer Page"</a></li>
+                <li>Link: <a href="https://play.google.com/store/apps/dev?id=7046826155181619635">FlashTalk on Google Play</a></li>
             </ul>
         </article>
         <article>
             <h3>Overlay (2015 - 2017)</h3>
             <ul>
                 <li>Developed a feature-rich photo editing app with custom typography, overlays, stickers, and filters</li>
-                <li>Link: <a href="#">Search "Rahul Juneja Google Play Developer Page"</a></li>
+                <li>Link: <a href="https://play.google.com/store/apps/dev?id=8782626067473947084">Overlay on Google Play</a></li>
             </ul>
         </article>
         <article>
@@ -217,7 +124,7 @@
                 <li>Maharshi Dayanand University, Rohtak, Haryana</li>
                 <li>2010 - 2014</li>
                 <li>Field: Information Technology</li>
-                <li>Link: <a href="#">Search "Maharshi Dayanand University"</a></li>
+                <li>Link: <a href="https://mdu.ac.in/default.aspx">Maharshi Dayanand University</a></li>
             </ul>
         </article>
     </section>

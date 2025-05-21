@@ -1,0 +1,96 @@
+body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            max-width: 900px; /* Max width for content */
+            margin-left: auto; /* Center content */
+            margin-right: auto; /* Center content */
+        }
+        header {
+            background-image: url('assets/images/header-bg.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Ensure text is white against the new background */
+            padding: 40px 20px; /* Increased padding for better spacing with bg image */
+            text-align: center;
+            margin-bottom: 30px; /* Increased margin for separation */
+        }
+        header img {
+            width: 150px;
+            height: 150px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
+            border: 3px solid #ddd;
+            margin-top: 20px; /* Space above image */
+            margin-bottom: 15px; /* Space below image, before text */
+        }
+        header h1 {
+            margin-bottom: 10px; /* Adjusted margin */
+            font-size: 36px; /* Slightly larger for impact */
+            color: #fff; /* Ensure white color */
+        }
+        header h2 {
+            font-size: 24px; /* Slightly larger */
+            color: #e0e0e0; /* Slightly adjusted light color */
+            margin-bottom: 15px; /* Adjusted margin */
+        }
+        header p {
+            font-size: 18px; /* Slightly larger for readability */
+            padding: 0 20px;
+            color: #f5f5f5; /* Ensure light color for paragraph text */
+            max-width: 700px; /* Constrain width for better readability on wide screens */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        section {
+            background: #fff;
+            margin: 0 20px 20px 20px; /* Horizontal margin, bottom margin */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px; /* Softer corners */
+        }
+        h2 { /* Section Headings */
+            color: #333;
+            font-size: 24px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 15px;
+        }
+        h3 { /* Job titles, project titles, degree */
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        article { /* Used for job entries, projects, education entry */
+            margin-bottom: 20px;
+        }
+        article:last-child {
+            margin-bottom: 0; /* No margin for the last article in a section */
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px; /* Adjust default list indentation */
+            list-style-position: outside; /* Standard bullet position */
+            margin-bottom: 0; /* Remove bottom margin from ul itself */
+        }
+        li {
+            margin-bottom: 8px; /* Space out list items */
+        }
+        a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline;
+        }
+        /* Removed the generic img styling as it's now specifically header img */
+        /* The #contact-details + img selector is no longer needed as the image is in the header */
