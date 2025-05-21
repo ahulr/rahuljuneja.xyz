@@ -7,40 +7,228 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            max-width: 900px; /* Max width for content */
+            margin-left: auto; /* Center content */
+            margin-right: auto; /* Center content */
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin-bottom: 5px;
+            font-size: 32px;
+        }
+        header h2 {
+            font-size: 22px;
+            color: #f0f0f0; /* Lighter color for subtitle */
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 16px;
+            padding: 0 20px; /* Add some padding to summary */
         }
         section {
-            margin: 20px;
-            padding: 15px;
-            border: 1px solid #ccc; /* Added a light border for visual separation */
+            background: #fff;
+            margin: 0 20px 20px 20px; /* Horizontal margin, bottom margin */
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px; /* Softer corners */
         }
-        h2 {
+        h2 { /* Section Headings */
             color: #333;
             font-size: 24px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0; /* Remove default top margin */
+            margin-bottom: 15px;
+        }
+        h3 { /* Job titles, project titles, degree */
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        article { /* Used for job entries, projects, education entry */
+            margin-bottom: 20px;
+        }
+        article:last-child {
+            margin-bottom: 0; /* No margin for the last article in a section */
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px; /* Adjust default list indentation */
+            list-style-position: outside; /* Standard bullet position */
+            margin-bottom: 0; /* Remove bottom margin from ul itself */
+        }
+        li {
+            margin-bottom: 8px; /* Space out list items */
+        }
+        a {
+            color: #007bff; /* Standard link blue */
+            text-decoration: none;
+        }
+        a:hover {
+            color: #0056b3; /* Darker blue on hover */
+            text-decoration: underline;
         }
         img {
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 200px; /* Explicitly setting width as per placeholder */
+            width: 150px; /* Slightly smaller profile picture */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 50%; /* Circular picture */
+            margin-bottom: 20px; /* Space below picture */
+            border: 3px solid #ddd;
         }
+        /* Ensure the image is placed after the header and contact details if it's a profile picture */
+        #contact-details + img { /* Selects img immediately following contact-details */
+             margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
+    <header>
+        <h1>Rahul Juneja</h1>
+        <h2>Android Application Developer</h2>
+        <p>A forward-thinking developer with strong knowledge of Android architecture components and more than 10 years of experience, working in different markets and industries. In my free time, I work on my personal projects which have more than 8 million downloads on Google Play.</p>
+    </header>
+
+    <section id="contact-details">
+        <h2>Contact Details</h2>
+        <ul>
+            <li>Email: rahuljuneja28@gmail.com</li>
+            <li>Phone: +436767641149</li>
+            <li>Location: Vienna, Austria</li>
+            <li>LinkedIn: <a href="https://linkedin.com/in/rahuljuneja28">linkedin.com/in/rahuljuneja28</a></li>
+            <li>GitHub: <a href="https://github.com/ahulr">github.com/ahulr</a></li>
+        </ul>
+    </section>
+
     <img src="https://placekitten.com/200/300" alt="My Picture">
 
     <section id="work-experience">
         <h2>Work Experience</h2>
+        
+        <article>
+            <h3>Senior Engineer (Android)</h3>
+            <p><strong>Bitpanda GmbH (Fintech), Vienna, Austria</strong><br>
+            <em>09/2021 - Present</em></p>
+            <ul>
+                <li>Worked across different cross-functional teams and developed key features for the Bitpanda broker app</li>
+                <li>Migrated XML-based views to Jetpack Compose for better maintainability and performance</li>
+                <li>Prepared the app for yearly platform updates ensuring compatibility with the latest Android versions</li>
+                <li>Project: Bitpanda: Buy Bitcoin & Crypto</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Applications Developer</h3>
+            <p><strong>SEPHORA Digital Pte. Ltd. (E-Commerce), Singapore</strong><br>
+            <em>10/2017 - 08/2021</em></p>
+            <ul>
+                <li>Led migration from Java to Kotlin and modularized the app to support Sephora’s expansion into new markets like South Korea</li>
+                <li>Integrated BeautyFeed CMS for dynamic content delivery, developed AR-based Virtual Artist makeup try-on feature</li>
+                <li>Collaborated with third-party vendors like DynamicYield and Maison 21G for product integrations</li>
+                <li>Project: Sephora - Beauty Shopping</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Android Developer</h3>
+            <p><strong>Bigfoot Retail Solutions Pvt. Ltd. (E-Commerce), New Delhi, India</strong><br>
+            <em>07/2015 - 06/2017</em></p>
+            <ul>
+                <li>Worked on product discovery, user-generated content, and checkout flows to ensure smooth shopping experience</li>
+                <li>Reviewed and implemented various 3rd-party SDKs for chat, event tracking, A/B testing, etc.</li>
+                <li>Helped the startup secure multiple rounds of funding</li>
+                <li>Project: Kraftly</li>
+            </ul>
+        </article>
+
+        <article>
+            <h3>Android Developer</h3>
+            <p><strong>cloudchowk Solutions Pvt. Ltd. (Healthcare), New Delhi, India</strong><br>
+            <em>06/2014 - 07/2015</em></p>
+            <ul>
+                <li>Created multiple Android apps from scratch for the company’s web product</li>
+                <li>Developed core features like user profiles, location-based listings, and comparison charts</li>
+                <li>Projects: Zureka, Lab Manager</li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
         <ul>
-            <li>Software Engineer at Tech Solutions (2020-2022)</li>
-            <li>Junior Developer at Web Innovations (2018-2020)</li>
+            <li>Android SDK</li>
+            <li>Kotlin</li>
+            <li>Compose</li>
+            <li>Java</li>
+            <li>XML</li>
+            <li>Android Studio</li>
+            <li>Firebase</li>
+            <li>Gradle</li>
         </ul>
+    </section>
+
+    <section id="personal-projects">
+        <h2>Personal Projects</h2>
+        <article>
+            <h3>FlashTalk (09/2024 - Present)</h3>
+            <ul>
+                <li>Designed and developed an AI-powered flashcard app that supports learning and practicing over 50 languages</li>
+                <li>Link: <a href="#">Search "Rahul Juneja Google Play Developer Page"</a></li>
+            </ul>
+        </article>
+        <article>
+            <h3>Overlay (2015 - 2017)</h3>
+            <ul>
+                <li>Developed a feature-rich photo editing app with custom typography, overlays, stickers, and filters</li>
+                <li>Link: <a href="#">Search "Rahul Juneja Google Play Developer Page"</a></li>
+            </ul>
+        </article>
+        <article>
+            <h3>Open Source Contributions on GitHub</h3>
+            <ul>
+                <li>Created libraries for Android with over 1.5k stars in total</li>
+                <li>Link: <a href="https://github.com/ahulr">GitHub Profile (github.com/ahulr)</a></li>
+                <li>Link: <a href="https://github.com/ahulr">GitHub Org (Contributions)</a></li>
+            </ul>
+        </article>
     </section>
 
     <section id="education">
         <h2>Education</h2>
+        <article>
+            <h3>Bachelor of Technology</h3>
+            <ul>
+                <li>Maharshi Dayanand University, Rohtak, Haryana</li>
+                <li>2010 - 2014</li>
+                <li>Field: Information Technology</li>
+                <li>Link: <a href="#">Search "Maharshi Dayanand University"</a></li>
+            </ul>
+        </article>
+    </section>
+
+    <section id="languages">
+        <h2>Languages</h2>
         <ul>
-            <li>M.S. in Computer Science - Tech University (2020)</li>
-            <li>B.S. in Software Engineering - State College (2018)</li>
+            <li>English: Full Professional Proficiency</li>
+            <li>Hindi: Full Professional Proficiency</li>
+            <li>Japanese: Elementary Proficiency</li>
+            <li>German: Elementary Proficiency</li>
         </ul>
     </section>
 
