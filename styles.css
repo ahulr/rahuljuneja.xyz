@@ -47,9 +47,21 @@ body {
             margin-left: auto;
             margin-right: auto;
         }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px; 
+        }
+        .left-column {
+            flex-basis: 30%;
+            margin-right: 20px;
+        }
+        .right-column {
+            flex-basis: calc(70% - 20px);
+        }
         section {
             background: #fff;
-            margin: 0 20px 20px 20px; /* Horizontal margin, bottom margin */
+            margin: 0 0 20px 0; /* Removed horizontal margins, kept bottom margin */
             padding: 20px;
             border: 1px solid #ddd;
             border-radius: 5px; /* Softer corners */
@@ -94,3 +106,18 @@ body {
         }
         /* Removed the generic img styling as it's now specifically header img */
         /* The #contact-details + img selector is no longer needed as the image is in the header */
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        padding: 0; /* Reset padding for full-width flow */
+    }
+    .left-column,
+    .right-column {
+        flex-basis: 100%;
+        margin-right: 0; /* Remove margin for stacked layout */
+    }
+    section {
+        margin: 0 20px 20px 20px; /* Restore horizontal margins for stacked sections */
+    }
+}
