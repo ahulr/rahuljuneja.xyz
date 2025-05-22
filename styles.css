@@ -205,15 +205,19 @@ a:hover {
 /* The nob (the moving part of the switch) */
 .slider:before {
     position: absolute;
-    content: "";
+    content: "☀️"; /* Sun icon for light mode */
     height: 20px; /* Height of the nob */
     width: 20px; /* Width of the nob */
     left: 4px; /* Position from the left */
     bottom: 4px; /* Position from the bottom */
-    background-color: white; /* Color of the nob */
+    /* background-color: white; Removed as icon provides visual */
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%; /* Make it circular */
+    font-size: 14px; /* Icon size */
+    line-height: 20px; /* Vertical center */
+    text-align: center; /* Horizontal center */
+    color: #333; /* Dark color for sun on light gray track */
 }
 
 input:checked + .slider {
@@ -225,6 +229,8 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
+    content: "🌙"; /* Moon icon for dark mode */
+    color: #fff; /* Light color for moon on blue/dark track */
     -webkit-transform: translateX(22px); /* How much the nob moves */
     -ms-transform: translateX(22px);
     transform: translateX(22px);
