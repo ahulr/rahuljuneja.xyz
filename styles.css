@@ -1,246 +1,528 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-    --body-bg-color: #f4f4f4;
-    --content-max-width: 900px;
-    --text-color-primary: #333;
-    --text-color-secondary: #555;
+    /* Colors */
+    --jet: hsl(0, 0%, 22%);
+    --onyx: hsl(240, 1%, 17%);
+    --eerie-black1: hsl(240, 2%, 13%);
+    --eerie-black2: hsl(240, 2%, 12%);
+    --smoky-black: hsl(0, 0%, 7%);
+    --white1: hsl(0, 0%, 100%);
+    --white2: hsl(0, 0%, 98%);
+    --orange-yellow-crayola: hsl(45, 100%, 72%);
+    --vegas-gold: hsl(45, 54%, 58%);
+    --light-gray: hsl(0, 0%, 84%);
+    --light-gray70: hsla(0, 0%, 84%, .7);
+
+    /* Typography */
+    --ff-poppins: 'Poppins', sans-serif;
+    --fs1: 24px;
+    --fs2: 18px;
+    --fw500: 500;
+    --fw600: 600;
+
+    /* Shadows */
+    --shadow1: -4px 8px 24px hsla(0, 0%, 0%, .25);
+    --shadow2: 0px 16px 30px hsla(0, 0%, 0%, .25);
+    --shadow3: 0px 16px 40px hsla(0, 0%, 0%, .25);
+
+    /* Transitions */
+    --transition1: .25s ease;
+    --transition2: .5s ease-in-out;
+
+    /* Layout */
+    --content-max-width: 1200px;
+    --border-radius: 20px;
+    --section-padding: 25px;
+
+    /* Component Sizes */
+    --header-img-size: 180px;
+    --back-to-top-size: 50px;
+    --progress-bar-height: 3px;
+    --ripple-size: 20px;
+
+    /* Light Mode Default Variables */
+    --body-bg-color: #f8f9fa;
+    --text-color-primary: var(--smoky-black);
+    --text-color-secondary: var(--jet);
     --link-color: #007bff;
     --link-hover-color: #0056b3;
-    --border-color: #ddd;
-    --section-bg-color: #fff;
-    --section-border-color: #ddd; /* Specific for section borders */
-    --section-heading-border-color: #eee; /* For h2 bottom border */
-    
-    --header-background: var(--header-bg-color-fallback) var(--header-bg-image) center/cover no-repeat;
-    --header-bg-image: url('assets/images/header-bg.png');
-    --header-bg-color-fallback: #333;
-    --header-text-color-h1: #fff;
-    --header-text-color-h2: #e0e0e0;
-    --header-text-color-p: #f5f5f5;
-    --profile-img-border-color: #ddd;
+    --border-color: #dee2e6;
+    --section-bg-color: var(--white1);
+    --section-border-color: #dee2e6;
+    --header-bg-color: var(--white1);
+    --header-text-color-h1: var(--smoky-black);
+    --header-text-color-h2: var(--jet);
+    --header-text-color-p: var(--onyx);
+    --profile-img-border-color: var(--orange-yellow-crayola);
 }
 
-body.dark-mode {
-    --body-bg-color: #121212;
-    --text-color-primary: #e0e0e0;
-    --text-color-secondary: #b0b0b0;
-    --link-color: #1e90ff;
-    --link-hover-color: #6495ed;
-    --border-color: #444; /* General border, might be overridden */
-    --section-bg-color: #1e1e1e;
-    --section-border-color: #444;
-    --section-heading-border-color: #333;
+/* Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --body-bg-color: var(--smoky-black);
+        --text-color-primary: var(--white2);
+        --text-color-secondary: var(--light-gray);
+        --link-color: var(--orange-yellow-crayola);
+        --link-hover-color: var(--vegas-gold);
+        --border-color: var(--jet);
+        --section-bg-color: var(--eerie-black2);
+        --section-border-color: var(--jet);
+        --header-bg-color: var(--eerie-black1);
+        --header-text-color-h1: var(--white1);
+        --header-text-color-h2: var(--light-gray);
+        --header-text-color-p: var(--light-gray70);
+        --profile-img-border-color: var(--orange-yellow-crayola);
+    }
+}
 
-    --header-bg-image: none; /* Remove background image for dark mode */
-    --header-bg-color-fallback: #222; /* Darker header background */
-    --header-background: var(--header-bg-color-fallback); /* Update combined variable */
+/* Reset and Base Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    --header-text-color-h1: #f5f5f5;
-    --header-text-color-h2: #d0d0d0;
-    --header-text-color-p: #c0c0c0;
-    --profile-img-border-color: #555;
+::selection {
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+}
+
+:focus { 
+    outline-color: var(--orange-yellow-crayola); 
+}
+
+html { 
+    font-family: var(--ff-poppins); 
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    background: var(--body-bg-color);
+    color: var(--text-color-primary);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: var(--body-bg-color);
-    color: var(--text-color-primary);
+    transition: background-color var(--transition2), color var(--transition2);
     max-width: var(--content-max-width);
-    margin-left: auto;
-    margin-right: auto;
-}
-header {
-    position: relative; /* Ensures theme switch positions relative to header */
-    background: var(--header-background);
-    padding: 40px 20px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-header img {
-    width: 150px;
-    height: 150px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 50%;
-    border: 3px solid var(--profile-img-border-color);
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
-header h1 {
-    margin-bottom: 10px;
-    font-size: 36px;
-    color: var(--header-text-color-h1);
-}
-header h2 {
-    font-size: 24px;
-    color: var(--header-text-color-h2);
-    margin-bottom: 15px;
-}
-header p {
-    font-size: 18px;
+    margin: 0 auto;
     padding: 0 20px;
-    color: var(--header-text-color-p);
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.main-content {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px; 
-}
-.left-column {
-    flex-basis: 30%;
-    margin-right: 20px;
-}
-.right-column {
-    flex-basis: calc(70% - 20px);
-}
-section {
-    background: var(--section-bg-color);
-    margin: 0 0 20px 0;
-    padding: 20px;
-    border: 1px solid var(--section-border-color);
-    border-radius: 5px;
-}
-h2 { /* Section Headings */
-    color: var(--text-color-primary); /* General text color for headings in sections */
-    font-size: 24px;
-    border-bottom: 1px solid var(--section-heading-border-color);
-    padding-bottom: 10px;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-h3 { /* Job titles, project titles, degree */
-    color: var(--text-color-secondary); /* Secondary text color */
-    font-size: 18px;
-    margin-bottom: 5px;
-}
-article { 
-    margin-bottom: 20px;
-}
-article:last-child {
-    margin-bottom: 0;
-}
-p { /* General paragraph text within sections */
-    color: var(--text-color-primary);
-    margin-bottom: 10px;
-}
-ul {
-    padding-left: 20px;
-    list-style-position: outside;
-    margin-bottom: 0;
-}
-li { /* List items use primary text color */
-    color: var(--text-color-primary);
-    margin-bottom: 8px;
-}
-a {
-    color: var(--link-color);
-    text-decoration: none;
-}
-a:hover {
-    color: var(--link-hover-color);
-    text-decoration: underline;
-}
-/* Removed the generic img styling as it's now specifically header img */
-/* The #contact-details + img selector is no longer needed as the image is in the header */
-
-@media (max-width: 768px) {
-    .main-content {
-        flex-direction: column;
-        padding: 0; 
-    }
-    .left-column,
-    .right-column {
-        flex-basis: 100%;
-        margin-right: 0; 
-    }
-    section {
-        margin: 0 20px 20px 20px; 
-    }
 }
 
-/* Theme Switch Styles */
-.theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-    position: absolute; /* Positioning relative to the header */
-    top: 20px; /* Adjust as needed for vertical alignment */
-    right: 20px; /* Adjust as needed for horizontal alignment */
-    z-index: 1000; /* Ensure it's above other header content if necessary */
-}
-
-.theme-switch {
+/* Header Styles */
+header {
     position: relative;
-    display: inline-block;
-    width: 50px; /* Width of the switch */
-    height: 28px; /* Height of the switch */
+    background: var(--header-bg-color);
+    padding: 60px 30px;
+    text-align: center;
+    margin: 20px 0 40px 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow2);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
 }
 
-/* Hide default HTML checkbox */
-.theme-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-/* The slider (the track of the switch) */
-.slider {
+header::before {
+    content: '';
     position: absolute;
-    cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc; /* Default background of the slider (when off) */
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 28px; /* Make it rounded */
+    background: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
+    opacity: 0.1;
+    z-index: -1;
 }
 
-/* The nob (the moving part of the switch) */
-.slider:before {
-    position: absolute;
-    content: "☀️"; /* Sun icon for light mode */
-    height: 20px; /* Height of the nob */
-    width: 20px; /* Width of the nob */
-    left: 4px; /* Position from the left */
-    bottom: 4px; /* Position from the bottom */
-    /* background-color: white; Removed as icon provides visual */
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%; /* Make it circular */
-    font-size: 14px; /* Icon size */
-    line-height: 20px; /* Vertical center */
-    text-align: center; /* Horizontal center */
-    color: #333; /* Dark color for sun on light gray track */
-}
-
-input:checked + .slider {
-    background-color: var(--link-color, #2196F3); /* Use link color or a specific color for "on" state */
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px var(--link-color, #2196F3);
-}
-
-input:checked + .slider:before {
-    content: "🌙"; /* Moon icon for dark mode */
-    color: #fff; /* Light color for moon on blue/dark track */
-    -webkit-transform: translateX(22px); /* How much the nob moves */
-    -ms-transform: translateX(22px);
-    transform: translateX(22px);
-}
-
-/* Rounded sliders */
-.slider.round {
-    border-radius: 28px;
-}
-
-.slider.round:before {
+header img {
+    width: var(--header-img-size);
+    height: var(--header-img-size);
+    display: block;
+    margin: 0 auto 25px;
     border-radius: 50%;
+    border: 4px solid var(--profile-img-border-color);
+    box-shadow: var(--shadow3);
+    transition: transform var(--transition1);
+}
+
+header img:hover {
+    transform: scale(1.05);
+}
+
+header h1 {
+    margin-bottom: 15px;
+    font-size: 42px;
+    font-weight: var(--fw600);
+    color: var(--header-text-color-h1);
+    background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header h2 {
+    font-size: 28px;
+    font-weight: var(--fw500);
+    color: var(--header-text-color-h2);
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 18px;
+    color: var(--header-text-color-p);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+header h2::after {
+    display: none;
+    content: none;
+}
+
+/* Main Content Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Section Styles */
+section {
+    background: var(--section-bg-color);
+    border: 1px solid var(--section-border-color);
+    border-radius: var(--border-radius);
+    padding: var(--section-padding);
+    box-shadow: var(--shadow1);
+    transition: transform var(--transition1), box-shadow var(--transition1);
+    margin-bottom: 25px;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow2);
+}
+
+h2 {
+    color: var(--text-color-primary);
+    font-size: var(--fs1);
+    font-weight: var(--fw600);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+    border-radius: 3px;
+}
+
+h3 {
+    color: var(--text-color-secondary);
+    font-size: var(--fs2);
+    font-weight: var(--fw500);
+    margin-bottom: 8px;
+}
+
+/* Article Styles */
+article {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: var(--section-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    transition: all var(--transition1);
+}
+
+article:hover {
+    border-color: var(--orange-yellow-crayola);
+    box-shadow: var(--shadow1);
+}
+
+article:last-child {
+    margin-bottom: 0;
+}
+
+/* Typography */
+p {
+    color: var(--text-color-primary);
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--orange-yellow-crayola);
+    font-weight: bold;
+}
+
+/* Link Styles */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    position: relative;
+    transition: color var(--transition1);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+    transition: width var(--transition1);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+/* Skills Section Enhancement */
+#skills ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding-left: 0;
+}
+
+#skills li {
+    background: var(--section-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px 15px;
+    text-align: center;
+    font-weight: var(--fw500);
+    transition: all var(--transition1);
+    position: relative;
+    overflow: hidden;
+}
+
+#skills li::before {
+    display: none;
+}
+
+#skills li:hover {
+    border-color: var(--orange-yellow-crayola);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow1);
+}
+
+/* Personal Projects Enhancement */
+#personal-projects article {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Project Icons Styling */
+#personal-projects .fab {
+    color: var(--orange-yellow-crayola);
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+/* Project Link Styles - Consolidated */
+.project-link {
+    padding-left: 0 !important;
+    text-align: start;
+}
+
+.project-link::before {
+    display: none !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    header {
+        padding: 40px 20px;
+    }
+    
+    header h1 {
+        font-size: 36px;
+    }
+    
+    header h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0 15px;
+    }
+    
+    header {
+        margin: 15px 0 30px 0;
+        padding: 30px 15px;
+    }
+    
+    header img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    header h1 {
+        font-size: 32px;
+    }
+    
+    header h2 {
+        font-size: 20px;
+    }
+    
+    header p {
+        font-size: 16px;
+    }
+    
+    section {
+        padding: 20px;
+    }
+    
+    #skills ul {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 28px;
+    }
+    
+    header h2 {
+        font-size: 18px;
+    }
+    
+    #skills ul {
+        grid-template-columns: 1fr;
+    }
+    
+    article {
+        padding: 15px;
+    }
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--section-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--orange-yellow-crayola);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--vegas-gold);
+}
+
+/* JavaScript-generated styles moved to CSS */
+.typing-cursor {
+    display: inline-block;
+    color: var(--orange-yellow-crayola);
+    font-weight: 600;
+    font-size: inherit;
+    margin-left: 2px;
+    animation: blink-cursor 0.7s steps(1) infinite;
+    vertical-align: baseline;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Utility classes for JavaScript components */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: var(--progress-bar-height);
+    background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
+    z-index: 9999;
+    transition: width 0.1s ease;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: var(--back-to-top-size);
+    height: var(--back-to-top-size);
+    border-radius: 50%;
+    background: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: var(--shadow2);
+    transition: all var(--transition1);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    transform: scale(1.1);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
 }
